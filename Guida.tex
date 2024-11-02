@@ -1,0 +1,391 @@
+\documentclass{article} %tipo di documento
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{algorithm2e}
+\usepackage{graphicx} % Required for inserting images
+%before \begin
+\usepackage{amssymb} %per i simboli matematici
+\usepackage{mathtools} %per simboli 
+\usepackage{listings} %per scrivere codice
+\usepackage{color} %per colorare il codice
+\usepackage{verbatim} %per scrivere codice
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+\title{Prova di comandi Latex}
+\author{Andrea Comar}
+\date{October 2024}
+
+\begin{document}
+
+\maketitle % to show title,author,date
+
+\tableofcontents % to show table of contents
+
+\newpage
+
+\part{ Titolo parte }
+Questo è del testo a caso per far capire cosa succede se scrivi direttamente sotto una parte.
+La parte, con comando \textbackslash part è la sezione più grossa in Latex. In automatico scrive parte I sopra. 
+
+\section{ Titolo sezione }
+La sezione è la seconda parte e puoi vedere il font automatico sopra queste righe di testo.
+comando \textbackslash section
+\subsection{ subsection }
+La sottosezione è questa parte, comando \textbackslash subsection
+\section{ Titolo sezione }
+Riutilizzando section conta in automatico quante sono le sezioni nel documento. Vale per tutti i comandi.
+\subsection{ titolo sottosezione}
+
+
+
+\paragraph{titolo paragrafo}
+Questo è un esempio di testo all'interno del paragrafo. 
+Gli spazi sono automatici, non c'è bisogno di premere invio per andare a capo.
+\subparagraph{titolo sottoparagrafo }  In questo caso invece sto scrivendo un sottoparagrafo del precedente. 
+Nel caso successivo provo a scrivere direttamente.
+\subparagraph{secondo sottoparagrafo} questo è un ulteriore sottoparagrafo.
+
+Se vuoi cambiare pagina, devi usare \textbackslash newpage
+\newpage
+
+
+\part{ Cose utili } %inizio parte con i comandi utili
+\section{Nuovo documento} 
+Per creare un nuovo documento, basta scrivere:
+\begin{verbatim}
+\documentclass{article} % tipo di documento
+	\usepackage{nome_pacchetto} % per i pacchetti
+
+	\title{titolo} 
+	\author{autore}
+	\date{data}
+
+\begin{document} % inizio del documento
+
+	\maketitle % per mostrare titolo, autore, data
+	\tableofcontents % per mostrare la tabella dei contenuti
+	...
+	\newpage % per cambiare pagina
+	...
+\end{document} 
+\end{verbatim}
+
+La sintassi minima è la seguente
+\begin{verbatim}
+\documentclass{article} 
+
+\begin{document}
+	...
+\end{document}
+\end{verbatim}
+
+\section{pacchetti utili} %PARTE DEI PACCHETTI
+
+\paragraph{graphicx} per inserire immagini
+\paragraph{amssymb} per i simboli matematici
+\paragraph{mathtools} per i simboli matematici
+\paragraph{algorithm2e} per scrivere algoritmi
+\paragraph{listings} per scrivere codice. si può scegliere un linguaggio oppure usarlo in modo simile al comando \textbackslash verbatim. Consiglio la seguente impostazione:
+\begin{verbatim}
+	\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
+\end{verbatim} 
+permette di scrivere i simboli matematici all'interno del codice, racchiundendoli con \$ ... \$
+\paragraph{color} per colorare il codice
+
+\section{Comandi scrittura} %PARTE DEI COMANDI DI SCRITTURA
+
+\paragraph{\textbackslash verbatin} Permette a Latex di non compilare il 
+testo all'interno delle parentesi graffe.
+
+\begin{verbatim}
+	if (a > b) {
+		return a;
+	} else {
+		return b;
+	}
+\end{verbatim}
+
+\paragraph{\textbackslash begin\{tabbing\}}
+Permette di scrivere all'interno di una tabulazione.
+uso dello \textbackslash \ per differenziare colonne.
+
+\begin{verbatim}
+	\begin{tabbing}
+			ciao\ ciao \ ciao
+	\end{tabbing}	
+\end{verbatim}
+\begin{tabbing}
+ciao \ ciao \ ciao
+\end{tabbing}
+
+\paragraph{\textbackslash textcolor\{colore\}\{testo\}}
+\textcolor{red}{testo rosso} $\sim$ necessita del rispettivo pacchetto.
+
+\paragraph{\textbackslash textit\{testo\}}
+\textit{testo in corsivo}
+
+\paragraph{\textbackslash textbf\{testo\}}
+\textbf{testo in grassetto}
+
+\paragraph{\textbackslash underline\{testo\}}
+\underline{testo sottolineato}
+
+
+
+
+\section{Utilizzo delle tabelle} %PARTE DELLE TABELLE
+In questa sezione capiremo come creare tabelle su latex. proviamo!
+\subsection{ambiente tabular}
+L'ambiente tabular si chiama con
+\begin{verbatim}
+\begin{tabular}{condizioni}
+	...
+\end{tabular}
+\end{verbatim}
+Parametri:
+\begin{itemize}
+	\item parametri \textcolor{blue}{l,c,r} per allineamento orizzontale
+	\item parametro \textcolor{blue}{p\{larghezza\}} per la larghezza. esclude parametri allineamento. 
+	\item parametro \textcolor{blue}{$|$} per linee verticali
+	\item paramatro \textcolor{blue}{@\{...\}} per spaziare le colonne
+\end{itemize}
+Costruzione tabella:
+\begin{itemize}
+	\item \textcolor{blue}{\&} per separare le colonne 
+	\item \textcolor{blue}{\textbackslash\textbackslash} per andare a capo
+	\item \textcolor{blue}{\textbackslash hline} inserisce linea orizzontale
+	\item \textcolor{blue}{\textbackslash cline\{i-j\}} inserisce linea orizzontale tra le colonne i e j
+	\item \textcolor{blue}{\textbackslash multicolumn\{ncol\}\{allineamentooriz\}\{...\}} per unire n colonne
+\end{itemize}
+
+\newpage
+
+\subsection{Esempio tabella}
+ %prima tabella
+\begin{tabbing} 
+
+\begin{tabular}{c}
+\begin{lstlisting}
+\begin{tabular}{|l|r|c|}
+  \hline
+  \multicolumn{3}{|c|}{all}\\
+  \hline
+  l & r & c \\
+  \hline
+\end{tabular}
+\end{lstlisting}
+\end{tabular}
+\
+
+\begin{tabular}{|l|r|c|}
+	\hline
+	\multicolumn{3}{|c|}{all}\\
+	\hline
+	l & r & c \\
+	\hline
+\end{tabular} 
+\end{tabbing}
+
+\begin{tabbing} %seconda tabella
+\begin{tabular}{c}
+\begin{lstlisting}
+\begin{tabular}{|l|r|c|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	l & r & c \\
+	\hline
+\end{tabular}
+\end{lstlisting}
+\end{tabular}
+\
+
+\begin{tabular}{|l|r|c|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	l & r & c \\
+	\hline
+\end{tabular} 
+\end{tabbing}
+% close the tabbing environment
+
+\begin{tabbing}%terza tabella
+
+\begin{tabular}{c}
+\begin{lstlisting}
+\begin{tabular}{|c|l|r|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	c & l & r \\	
+	\hline
+\end{tabular}
+\end{lstlisting}
+\end{tabular}
+
+\
+
+\begin{tabular}{|c|l|r|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	c & l & r \\	
+	\hline
+\end{tabular} 
+\end{tabbing}
+
+
+
+ %quarta tabella
+
+\begin{tabular}{c}
+\begin{lstlisting}
+\begin{tabular}{|r|r|r|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	testo di prova & prova & interpretazione \\	
+	\hline
+\end{tabular}
+\end{lstlisting}
+\end{tabular}
+\\
+\begin{tabular}{|r|r|r|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	testo di prova & prova & interpretazione \\	
+	\hline
+\end{tabular} 
+
+\begin{tabular}{|l|r|c|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	l & r & c \\
+	\hline
+\end{tabular}
+
+
+\begin{tabular}{|c|l|r|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	c & l & r \\	
+	\hline
+\end{tabular}
+
+
+
+
+\begin{tabular}{|r|r|r|}
+	\hline
+	\multicolumn{3}{|c|}{allineamento}\\
+	\hline
+	testo di prova & prova & interpretazione \\	
+	\hline
+\end{tabular}
+
+
+
+
+
+\begin{tabular}{|c|c|c|c|}
+		\hline
+		\multicolumn{4}{|c|}{Tabella di prova} \\
+		\hline
+		\textbf{Nome} & \textbf{Cognome} & \textbf{Età} & \textbf{Sesso} \\
+		\hline
+		Andrea & Comar & 23 & M \\
+		\hline
+		Stefano & Giorda & 23 & F \\
+		\hline
+\end{tabular}
+
+
+
+\section{Simboli utili} %PARTE DEI SIMBOLI
+\subsection{Simboli matematici}
+
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\multicolumn{4}{|c|}{Simboli matematici} \\
+	\hline
+	\textbf{Simbolo} & \textbf{Comando} & \textbf{Simbolo} & \textbf{Comando} \\
+	\hline
+	$\cup$ & \textbackslash cup & $\cap$ & \textbackslash cap \\
+	\hline
+	$\subset$ & \textbackslash subset & $\supseteq$ & \textbackslash supseteq \\
+	\hline
+	$\leftarrow$ & \textbackslash leftarrow & $\rightarrow$ & \textbackslash rightarrow \\
+	\hline
+	$\vdash$ & \textbackslash vdash & $\vDash$ & \textbackslash vDash \\
+	\hline
+	$\wedge$ & \textbackslash wedge & $\vee$ & \textbackslash vee \\
+	\hline
+
+\end{tabular}
+
+\section{Utilizzo di algorithm2e} %PARTE DEGLI ALGORITMI
+
+per iniziare a scrivere un algoritmo devo utilizzare il comando \\ \textbackslash begin\{algorithm\}[H] e \textbackslash end\{algorithm\} alla fine del codice.
+\\
+con il comando \textbackslash SetAlgoLined posso decidere se mettere o no le linee per separare le righe dell'algoritmo.
+\\
+con il comando \textbackslash KwData posso scrivere i dati in ingresso dell'algoritmo.
+\begin{algorithm}
+	\SetAlgoLined
+	\KwData{this text}
+\end{algorithm}
+\\
+con il comando \textbackslash KwResult posso scrivere i dati in uscita dell'algoritmo.
+\begin{algorithm}
+	\SetAlgoLined
+	\KwResult{how to write algorithm with \LaTeX2e }
+\end{algorithm}
+\newpage
+\paragraph{For}con il comando \textbackslash For
+\begin{algorithm}
+	\For{content...}{for-block}
+\end{algorithm}
+\paragraph{ForEach}con il comando \textbackslash foreach
+\begin{algorithm}
+	\ForEach(content...){condition}{foreach-block}
+\end{algorithm}
+
+
+\paragraph{while} con il comando \textbackslash While 
+\begin{algorithm}
+	\While{content...}{while-block}
+\end{algorithm}
+
+\newpage 
+
+\paragraph{If}con il comando \textbackslash If
+\begin{algorithm}
+	\If{content...}{then-block}
+\end{algorithm}
+
+\newpage
+
+con il comando \textbackslash eIf posso scrivere un if-else. 
+\\
+\begin{algorithm}
+	\eIf{condition}{then-block}{else-block}
+\end{algorithm}
+\\
+\paragraph{Else}con il comando \textbackslash Else posso scrivere un else.
+\\
+\begin{algorithm}
+	\eIf{Chiara è Piena}{si slaccia la cintura\; e si rompe il cazzo\; }{Si lamenta che ha fame}
+\end{algorithm}
+
+
+
+\end{document}

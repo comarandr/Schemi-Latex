@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb}
+
+
+\title{Bash cheat sheet}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section{Comandi Introduttivi Bash}
+\begin{itemize} %inizio elenco sezioni
+
+    \item Tipi di shell
+    
+        \begin{itemize} %inizio elenco comandi shell
+        
+        \item \textbf{sh} : cambia in Bourne shell
+        \item \textbf{bash} :  cambia in Bourne again shell
+        \item \textbf{csh}, \textbf{tcs} : ulteriori tipi
+        \item \textbf{echo \$Shell} : mostra tipo bash
+        \item \textbf{exec} : tipo di shell
+        \item \textbf{man [arg] [comando]} : apre il manuale alla pagina del comando
+            \begin{itemize}
+                \item \textbf{-a} : apre nelle sezioni in cui compare comando
+                \item $\mathbf{ -s_{i} }$ : apre nella i-esima sezione $(s_{i} \ intero)$
+            \end{itemize}
+        \item \textbf{clear} : ripulisce la schermata
+        \item \textbf{exit} , \textbf{CTRL+T} , \textbf{logout} : chiusura shell
+        
+        \end{itemize} %fine elenco comandi shell
+        
+    \item File System
+    
+        \begin{itemize} %inizio gestione cartelle
+        
+            \item \textbf{pwd } : cartella in cui ti trovi
+            \item \textbf{ cd [path] } : cambia cartella
+            \item \textbf{..} : cartella madre
+            \item \textbf{.} : cartella corrente
+            \item \textbf{ls [arg] [path] } : elenca i file
+            
+            \begin{itemize} %inizio argomenti ls
+            
+                \item \textbf{-l} : elenco lungo
+                \item \textbf{-a} : elenca elementi nascosti
+                \item \textbf{-al} : elenco lungo e nascosti, posso combinare elementi 
+                
+            \end{itemize} %fine argomenti ls
+            
+            \item \textbf{mkdir} : crea cartella
+            \item \textbf{rmdir} : rimuove cartella
+            \item \textbf{rm [option] [file]} ; rimuove file o cartella
+            \item \textbf{cp [file1] [file2]} : copia file1 in fil2, se file2 non esiste lo crea
+            \item \textbf{cp [file1] [file2] [...] [dir1]} : copia più file, ma ultimo argomento cartella
+            \item \textbf{mv [file1] [file2] } : sposta, rimane solo file2
+            \item \textbf{mv [file1] [file2] [...] [dir1]} : sposta più file, ultimo argomento cartella
+            \item \textbf{ln [file1] [file2]} : creazione di hard link
+            \item \textbf{ln $\mathbf{-s}$ [file1] [file2] }: creazione di soft link
+            
+        \end{itemize} %fine gestione cartelle
+        \newpage
+        
+    \item Permessi ( rwx: read, write, execute) 
+        \begin{itemize} %inizio permessi
+            \item \textbf{chmod [arg] [file1]} : cambia permessi 
+                \begin{itemize} %inizio argomenti chmod
+                    \item sistema ottale, es 744
+                    \item u=rwx : owner
+                    \item g=rwx : gruppo
+                    \item o=rwx : altri utenti
+                    \item + : aggiunge permessi che seguono
+                    \item - : toglie permessi che seguono
+                    \item = : imposta esattamente permessi che seguono
+                \end{itemize} %fine argomenti chmod
+        \end{itemize} %fine permessi
+    
+    \item Comandi File
+    \begin{itemize} %inizio comandi file
+     
+    
+    \item \textbf{cat [file1]} : mostra contenuto file tutto in una volta (oppure concatena)
+    \item \textbf{more [file1]} : mostra contenuto file ma una pagina alla volta
+    \item \textbf{less [file1]} : mostra contenuto file una pagina alla volta ma puoi scorrere
+    \item \textbf{tail  [file1]} : mostra ultime righe contenuto file, posso specificare con -n (n $\in \mathbb{N}$)
+    \item \textbf{head [file1]} : mostra le prime righe di un file, posso specificare con -n (n $\in \mathbb{N}$)
+    \item \textbf{wc [file1]} : conta righe, parole e caratteri
+    \end{itemize} %fine comandi file
+
+    \item Metacaratteri
+        \begin{itemize} %inizio metacaretteri
+            \item $\mathbf{\ast}$ : abbreviazione che indica generica stringa di 0 o più caratteri
+            \item \textbf{?} : abbreviazione per singolo carattere generico
+            \item \textbf{[]} : singolo carattere tra quelli elencati
+            \item \{\} : sequenza di stringhe
+            \item $>$ : redirezione output
+            \item $<<$: redirezione output (append)
+            \item $<$ : redirezione dell'input
+            \item $<<$ : redirezione input dalla linea comando
+            \item $2>$ : redirezione messaggi errore
+            \item $|$ : pipe, compone comandi in parallelo
+            \item ; : sequenza di comandi
+            \item $||$ : se primo fallisce, esegue successivo
+            \item \&\& : se primo comando riesce, esegue successivo
+            \item (): raggruppamento comandi
+            \item $\ast$ : introduce un commento
+            \item ! : ripetizione di comandi memorizzati history list
+            
+
+            \item \textbf{quoting} : inibisce l'effetto dei metacaratteri
+
+                \begin{itemize} %inizio quoting
+                    \item \textbf{' [comando] ' }
+                    \item \textbf{\textbackslash [metachar]}
+                    \item \textbf{" [comando] "}
+                \end{itemize} %fine quoting
+        \end{itemize} %finecmetacaratteri
+
+
+    \item History e comandi
+        \begin{itemize} %inizio history
+            \item \textbf{history} : visualizza lista comandi
+            \item \textbf{alias [arg] [comando]} : crea alias
+                \begin{itemize}
+                    \item \textbf{.} : alias cartella corrente
+                    \item \textbf{..} : alias cartella madre
+                    \item \textbf{~username} : alias home directory
+                \end{itemize}
+            \item \textbf{unalias [arg] [comando]} : rimuove alias
+        \end{itemize} %fine history
+
+    \item Processi
+        \begin{itemize} %inizio comandi processi
+            \item \textbf{ps [arg]} : fornisce processi dell'utente associati al terminale corrente
+            \begin{itemize} %inizio argomenti ps
+                \item -a : tutti processi associati a un terminale
+                \item -f : full listing
+                \item -e : tutti processi anche non associati a un terminale
+                \item -l : long listing
+            \end{itemize} %fine argomenti ps
+
+            \item \textbf{kill [arg] [processo]} : arresta il processo
+            \begin{itemize} %inizio argomenti kill
+                \item -9 : segnale sigkill
+                \item -s kill : segnale sigkill
+            \end{itemize} %fine argomenti kill
+            \item \textbf{[comando] \&} : esegue in background
+            \item \textbf{jobs} : mostra lista dei job in esecuzione
+            \item \textbf{CTRL+Z} : sospende un job
+            \item \textbf{kill \%i} : termina il job di indice i
+            \item \textbf{[job] fg} : resume del job in foreground
+            \item \textbf{[job] bg} : resume del job in background
+            
+        \end{itemize} %fine comandi processi
+\end{itemize} %fine elenco sezioni
+
+
+\end{document}
