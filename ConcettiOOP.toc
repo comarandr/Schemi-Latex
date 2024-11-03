@@ -1,0 +1,34 @@
+\contentsline {section}{\numberline {1}Automazione dei Test nell'ambito del Software Development}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Tipologie di test automatizzati}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Vantaggi dell'automazione dei test}{2}{}%
+\contentsline {subsection}{\numberline {1.3}Strumenti di automazione dei test}{3}{}%
+\contentsline {subsection}{\numberline {1.4}Best practices}{3}{}%
+\contentsline {section}{\numberline {2}Sviluppo Agile in Programmazione}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Metodologie Agile}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Vantaggi dello Sviluppo Agile}{4}{}%
+\contentsline {subsection}{\numberline {2.3}Sfide dello Sviluppo Agile}{5}{}%
+\contentsline {subsection}{\numberline {2.4}Conclusione}{5}{}%
+\contentsline {section}{\numberline {3}DevOps in ambito software}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Principi di DevOps}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Pipeline DevOps}{6}{}%
+\contentsline {subsection}{\numberline {3.3}Strumenti DevOps}{6}{}%
+\contentsline {subsection}{\numberline {3.4}Vantaggi di DevOps}{7}{}%
+\contentsline {subsection}{\numberline {3.5}Sfide di DevOps}{7}{}%
+\contentsline {subsection}{\numberline {3.6}Conclusione}{7}{}%
+\contentsline {section}{\numberline {4}Test-Driven Development in ambito software}{9}{}%
+\contentsline {subsection}{\numberline {4.1}Ciclo di Sviluppo TDD}{10}{}%
+\contentsline {subsection}{\numberline {4.2}Vantaggi del TDD}{10}{}%
+\contentsline {subsection}{\numberline {4.3}Tipi di Test in TDD}{10}{}%
+\contentsline {subsection}{\numberline {4.4}Strumenti di TDD}{11}{}%
+\contentsline {subsection}{\numberline {4.5}Sfide del TDD}{11}{}%
+\contentsline {subsection}{\numberline {4.6}Conclusione}{11}{}%
+\contentsline {section}{\numberline {5}junit}{12}{}%
+\contentsline {section}{\numberline {6}refactoring}{12}{}%
+\contentsline {section}{\numberline {7}principi SOLID di programmazione}{12}{}%
+\contentsline {section}{\numberline {8}clean code}{12}{}%
+\contentsline {section}{\numberline {9}git}{12}{}%
+\contentsline {section}{\numberline {10}continuous deployment}{12}{}%
+\contentsline {section}{\numberline {11}unit testing}{12}{}%
+\contentsline {section}{\numberline {12}maven}{12}{}%
+\contentsline {section}{\numberline {13}make}{12}{}%
+\contentsline {section}{\numberline {14}build/packaging/bundle}{12}{}%
