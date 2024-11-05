@@ -4,23 +4,29 @@
 \usepackage{graphicx} 
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 \title{Algoritmi Sheet}
-\author{Author Name}
+\author{Andrea}
 \date{\today}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
+\newpage
 
 \section{Algoritmi di ordinamento}
 Algoritmi di ordinamento 
 \subsection{Insertion Sort}
 \IncMargin{1em} %margine
 \begin{algorithm}[H] 
-\SetAlgoLined
 \caption{InsertionSort\label{IR}}
 \KwData{A array, i indice, j indice}
 \For{ $i \leftarrow 2$ to A.length }{

@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} % Required for inserting images
+%before \begin
+\usepackage{amssymb} %per i simboli matematici
+\usepackage{mathtools} %per simboli 
+\usepackage{color} %per colorare il codice
+\usepackage{hyperref} %per i link
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\title{Sistemi Operativi - Teoria}
+\author{Andrea Comar}
+\date{\today}
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\part{Hardware e Architettura degli elaboratori}
+
+\part{Introduzione ai Sistemi Operativi}
+\section{Definizione}
+Un sistema operativo è un programma che agisce come intermediario tra utente/programmatore e hardware. Coordina l'uso dell'hardware tra i vari programmi e utenti.
+Il suo obbiettivo è quello di realizzare una \textit{macchina astratta} che implementi funzionalità di alto livello.
+\begin{itemize}
+    \item \textbf{assegnatore di risorse}: alloca le risorse in modo efficiente
+    \item \textbf{Programma di controllo}: controlla l'esecuzione dei programmi per evitare errori
+\end{itemize}
+
+Le componenti di un sistema di calcolo sono:
+\begin{itemize}
+    \item \textbf{Hardware}: fornisce le risorse computazionali di base CPU, memoria, I/O
+    \item \textbf{Sistema Operativo}: controlla e coordina le risorse hardware SO, driver, utility
+    \item \textbf{Programmi di sistema}: programmi indipendenti dall'applicazione che forniscono servizi al SO (compilatori, editor,...)
+    \item \textbf{Programmi applicativi}: programmi che definiscono il modo in cui le risorse del sistema sono usate per risolvere problemi computazionali dell'utente
+    \item \textbf{Utenti}: persone, macchine, altri calcolatori.
+\end{itemize}
+
+\section{Storia}
+\subsection{Esordi}
+
+\subsection{II Generazione: Transistor  e sistemi batch} 
+\subsection{III Generazione: Sistemi multiprogrammati}
+
+\part{Scheduling CPU}
+\end{document}
+
+
+\end{document}
