@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.21)  5 NOV 2024 15:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.21)  6 NOV 2024 18:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -322,35 +322,30 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/comar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (SistemiOperativi.toc)
+{C:/Users/comar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (SistemiOperativi.toc [2])
 \tf@toc=\write4
 \openout4 = `SistemiOperativi.toc'.
 
- [2]
-Overfull \hbox (63.92792pt too wide) in paragraph at lines 27--29
-\T1/cmr/m/n/10 Un sis-tema op-er-a-tivo è un pro-gramma che agisce come in-ter-me-di-ario tra utente/programmatore
- []
-
-[3] [4] (SistemiOperativi.aux)
+ [3] [4] [5] [6] [7] [8] [9] [10] [11] (SistemiOperativi.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `SistemiOperativi.out' has not changed.
-(rerunfilecheck)             Checksum: 696A7BC2ED4CF2A1547107D8866FBAB6;1731.
+(rerunfilecheck)             Checksum: C5951E54CE193DC4773D854D414E8B68;6856.
  ) 
 Here is how much of TeX's memory you used:
- 10581 strings out of 474486
- 163821 string characters out of 5743754
- 1932542 words of memory out of 5000000
- 32707 multiletter control sequences out of 15000+600000
+ 10660 strings out of 474486
+ 164733 string characters out of 5743754
+ 1936542 words of memory out of 5000000
+ 32737 multiletter control sequences out of 15000+600000
  571602 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,385b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,385b,518s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on SistemiOperativi.pdf (4 pages, 89293 bytes).
+Output written on SistemiOperativi.pdf (11 pages, 160666 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 629 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 500000)
+ 321 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -19,12 +19,13 @@
 \newpage
 \tableofcontents
 \newpage
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \part{Hardware e Architettura degli elaboratori}
-
-\part{Introduzione ai Sistemi Operativi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Introduzione ai Sistemi Operativi} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Definizione}
-Un sistema operativo è un programma che agisce come intermediario tra utente/programmatore e hardware. Coordina l'uso dell'hardware tra i vari programmi e utenti.
+Un sistema operativo è un programma che agisce come intermediario tra utente programmatore e hardware. 
+Coordina l'uso dell'hardware tra i vari programmi e utenti.
 Il suo obbiettivo è quello di realizzare una \textit{macchina astratta} che implementi funzionalità di alto livello.
 \begin{itemize}
     \item \textbf{assegnatore di risorse}: alloca le risorse in modo efficiente
@@ -49,7 +50,214 @@ e funzionavano unicamente da console, con un solo utente alla volta.
 \subsection{III Generazione: Sistemi multiprogrammati}
 \subsection{Sistemi time-sharing}
 
-\part{Scheduling CPU}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\part{Componenti, servizi e strutture dei S.O}
+
+\section{Componenti comuni dei sistemi}
+\subsection{Gestione dei processi}
+\paragraph{processo:} programma in esecuzione, il quale necessita di determinate risorse (tempo cpu, ram, file, dispositivi I/O ecc...)
+
+Per quanto riguarda la gestione dei processi il sistema operativo è responsabile di:
+\begin{itemize}
+    \item creazione e cancellazione;
+    \item sospensione e resume;
+    \item fornire meccanismi di sincronizzazione e comunicazione processi
+    \item evitare, prevenire i deadlock
+\end{itemize}
+
+
+\subsection{Gestione della memoria principale}
+Per quanto riguarda la memoria possiamo dire che:
+\begin{itemize}
+    \item è un grande array di \textit{words} identificate da un indirizzo preciso.
+    \item è un deposito di dati rapidamente accessibile
+    \item è un deposito \textit{volatile}, ovvero perde il contenuto in caso di \it{system failure}. 
+\end{itemize}
+Il sistema operativo è responsabile di:
+\begin{itemize}
+    \item tenere traccia delle locazioni di memoria allocate e libere
+    \item decidere quale processo deve essere caricato in memoria quando c'è spazio limitato
+    \item allocare e deallocare spazio di memoria come richiesto
+\end{itemize}
+
+\subsection{Gestione della memoria secondaria}
+La memoria secondaria è una memoria di supporto a quella principale, capiente e soprattutto non volatile.
+Il sistema operativo si occupa della \textit{gestione dello spazio libero}, dell'\textit{allocazione dello spazio} e dello \textit{scheduling} dei vari dischi di memoria. 
+
+\subsection{Gestione del sistema di I/O}
+Ovvero:
+\begin{itemize}
+    \item sistemi di caching,buffering,spooling
+    \item interfaccia generale dei gestori di dispositivi(device driver)
+    \item i driver per ogni specifico dispositivo hw (controller)
+\end{itemize}
+
+\subsection{Gestion dei File}
+\paragraph{file:} è una collezione di informazioni correlate, definite dal creatore. Comunemente rapppresentano dati e programmi (sia sorgenti che \textit{oggetti}(= eseguibili))
+Il sistema operativo è responsabile di:
+\begin{itemize}
+    \item creazione e cancellazione di file
+    \item creazione e cancellazione di directory
+    \item supporto di primitive per manipolazione di file e directory
+    \item allocazione dei file nella memoria secondaria e salvataggio dati su supporti non volatili
+\end{itemize}
+
+\subsection{Sistemi di protezione}
+
+\paragraph{Protezione:} è il metodo per controllare l'accesso alle risorse del sistema da parte di utenti, programmi e processi.
+Un buon meccanismo di protezione deve:
+\begin{itemize}
+    \item distinguere tra uso autorizzato e non
+    \item fornire un modo per specificare i controlli da imporre
+    \item forzare gli utenti e i processi a sottostare ai controlli richiesti
+\end{itemize}
+
+\subsection{Networking(Sistemi distribuiti)}
+\paragraph{Sistema distribuito:} è una collezione di processori che non condividono memoria o clock. Ogni processore ha una \textit{memoria propria}.
+I processori del sistema sono connessi attraverso una \textit{rete di comunicazione}. Fornisce agli utenti l'accesso a diverse risorse di sistema. La condivisione 
+di una risorsa condivisa permette di avere dei miglioramenti prestazionali in termini computazionali, di quantità di dati e di affidabilità.
+
+\subsection{Interprete dei comandi}
+Il sistema operativo riceve molti comandi attraverso dei \textit{control statement}, 
+i quali servono a controllare il comportamento del sistema nei casi visti precedentemente (processi, I/O, memorie, file system, ...).
+Il programma che legge e interpreta i comandi di controllo ha diversi nomi in base a sistema operativo e tipologia. La sua funzione
+è di ricevere un comando, eseguirlo e ripetere
+\begin{itemize}
+    \item inteprete schede di controllo (sistemi batch)
+    \item interprete della linea di comando (DOS, Windows)
+    \item shell (UNIX)
+    \item interfaccia grafica: Finder (MacOS), Explorer (Windows), gnome-session (Unix)
+\end{itemize}
+
+\section{Servizi dei Sistemi operativi}
+I sistemi operativi si occupano di diversi servizi: 
+\begin{itemize}
+    \item esecuzione programmi: caricamento in memoria ed esecuzione
+    \item operazioni di I/O, il Sistema operativo determina come condurle in quanto non possono farlo gli utenti
+    \item manipolazione del file system
+    \item comunicazione tra processi in esecuzione, mediante \textit{memoria condivisa} o \textit{passaggio di messaggi}
+    \item indivudazione e risoluzione di errori nelle vaarie parti hw (cpu, ram ...) oppure nei programmi degli utenti
+\end{itemize}
+Vi sono poi delle funzionalità addizionali atte a migliorare l'efficienza del sistema:
+\begin{itemize}
+    \item allocazione risorse a più utenti o processi 
+    \item accounting, ovvero tracciare chi e come usa le risorse (per statistica o rendicontazione)
+    \item protezione, assicurando che tutti gli accessi alle risorse siano controllati
+\end{itemize}
+
+\section{Chiamate di Sistema (System Calls)}
+\subsection{Definizione}
+Le chiamate di sistema formano l'interfaccia tra un programm in esecuzione e il sistema operativo. Generalmente sono disponibili o come 
+istruzioni assembler speciali, oppure alcuni linguaggi specifici per OS permettono direttamente di effettuarne.
+Per passare parametri tra un programma e il sistema operativo possiamo:
+\begin{itemize}
+    \item utilizzare i \textit{registri}
+    \item passare, mediante i registrim un indirizzo a una tabella di memoria contenente i parametri
+    \item utilizzare lo \textit{stack}, mediante push dei parametri da parte del programma e pop da parte del sistema operativo
+\end{itemize}
+\subsection{Tipi di chiamate di sistema}
+\begin{itemize}
+    \item \textbf{Controllo dei processi}: creazione, terminazione di processi
+    \item \textbf{Gestione dei file}: 
+    \item \textbf{Gestione dei dispositivi}: richiesta lettura, scrittura, apertura, chiusura
+    \item \textbf{Informazioni sul sistema}: informazione sul sistema come data, hw e sw installato, ecc
+    \item \textbf{Comunicazione}: creazione, cancellazione di comunicazioni tra processi
+\end{itemize}
+
+\section{Programmi di sistema}
+I programmi di sistema forniscono un ambiente per lo sviluppo e l'esecuzione dei programmi. Si dividono in: gestione file, modifiche file,
+informazioni sullo stato del sistema e dell'utente, supporto dei linguaggi di programmazione, caricamente ed esecuzione dei programmi, 
+comunicazioni, altri programmi come compilatori, elaboratori testi, interpreti di comandi, ecc.
+\newline
+Gran parte di ciò che un utente vede di un sistema operaitivo è definito dai programmi di sistema e non dalle reali chiamate di sistema.
+\section{Struttura dei Sistemi Operativi}
+\subsection{approccio semplice}
+\begin{itemize}
+    \item MS-DOS: massime funzionalità nel minore spazio, NON diviso in moduli, interfaccie e livelli funzionali non ben separati
+    \item UNIX originale: strutturazione debole, distinzione principale tra programmi di sistema e \textit{kernel}
+\end{itemize}
+
+\paragraph{Kernel:} consiste in tutto ciò che sta tra system call e hardware. \\
+implementa il file system, lo scheduling della cpu, la gestione della memoria e altre funzioni del sistema operativo.
+
+%valutare se mettere immagine
+\subsection{approccio stratificato}
+Il S.O. viene suddiviso in diversi strati detti livelli, partendo dall'hardware (livello 0) 
+all'interfaccia utente. Secondo la \textit{modularità} ogni livello utilizza operazioni e servizi degli strati inferiori, sul quale è costruito.
+
+\paragraph{THE OS:} fu il primo esempio di stratificazione, in 6 livelli: hardware, CPU scheduling, memory management, operator-console device driver,
+buffering for input e output devices, user programs.
+
+%altre immagini
+
+\section{Macchine virtuali}
+\subsection{definizione}
+\paragraph{macchina virtuale:} fornisce un'interfaccia identica all'hardware sottostante a diversi ambienti di esecuzione.\newline
+A ogni processo guest viene fornito una copia virtuale dell'host. \newline
+Il gestore della macchina virtuale (VMM o hypervisor) impiega le risorse del calcolatore fisico per creare macchine virtuali
+\begin{itemize}
+    \item scheduling CPU crea illusione che ogni processo abbia la sua CPU dedicata
+    \item gestione ram crea illusione di ram dedicata
+    \item stampanti virtuali mediante spooling
+    \item lo spazio del disco può essere impiegato per "dischi virtuali"
+\end{itemize}
+Fornisce protezione delle risorse del sistema in quanto ogni VM è isolata, a discapito della condivisione diretta delle risorse. 
+Ottima per la simulazione di altri sistemi operativi, in quanto limita possibilità di far danni. L'implementazione è complessa in quanto 
+la duplicazione non è facile. L'approccio è seguito in molti sistemi.
+
+\subsection{Exokernel}
+\paragraph{exokernel:} (è un approccio alla virtualizzazione che cerca di minimizzare il livello di astrazione tra il software e l'hardware.)
+ogni macchina virtuale vede solo un sottoinsieme delle risorse complessive della macchina, ogni vm con proprio OS richiede le risorse all'exokernel 
+ne traccia l'utilizzo. Questo approccio semplifica l'uso delle risorse allocate in quanto l'exokernel deve unicamente tenere \textbf{separati} i 
+domini di allocazione
+
+\section{meccanismi e politiche}
+I kernel tradizionali (monolitici) sono poco flessibili.
+\begin{itemize}
+    \item \textbf{meccanismi}: determinano \textbf{come} deve essere fatto (es. assegnazione dell'esecuzione a un processo)
+    \item \textbf{politiche}: determinano \textbf{cosa} deve essere fatto (es. scegliere quale processo attivare)
+\end{itemize}
+
+
+Questa separazione permette flessibilità in caso di cambiamenti di politiche. (estremizzazione: kernel fornisce meccanismi, politiche implementate in user space).
+
+
+\section{Sistemi con Microkernel}
+\paragraph{microkernel:} quando il kernel è ridotto all'osso e fornisce soltanto i meccanismi di 
+\begin{itemize}
+    \item comunicazione tra i processi
+    \item minima gestione della memoria e dei processi
+    \item gestione hardware basso livello (driver)
+\end{itemize}
+Tutto il resto viene gestito a livello di spazio utente. è meno efficiente del kernel monolitico, ma è molto flessibile, 
+immediatamente scalabile in ambiente di rete.
+
+\section{Esempi}
+\begin{itemize}
+    \item Esempio stratificato microkernel: MacOS X
+    \item Esempio stratificato non microkernel Windows Vista
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Processi e Thread} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Concetto di processo}
+\paragraph{programma:} entità statica che risiede in un file su disco.
+\paragraph{processo:} è la parte \textbf{dinamica} di un programma generata da un'esecuzione del programma stesso.
+\paragraph{job:} è l'insieme dei processi (o il singolo processo) generati da una singola linea di comando che occorrono in pipeline.
+\section{Operazioni sui processi}
+\section{Stati dei processi}
+\section{Threads}
+\section{Scheduling dei processi}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Scheduling CPU} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduzione}
 L'introduzione della multiprogrammazione ha portato alla necessità di gestire l'allocazione della CPU tra i vari processi.
 Ogni processo è caratterizzato da un \textbf{ciclo Burst CPU-I/O} che consiste in una sequenza di periodi
