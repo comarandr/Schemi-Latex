@@ -1,5 +1,41 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinelanguage{yaml}{
+  keywords={true,false,null,y,n},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  stringstyle=\color{blue},
+  commentstyle=\color{gray},
+  keywordstyle=\color{orange}\bfseries,
+}
+
+% Configurazione per il codice Java
+\lstset{
+  language=Java,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  stringstyle=\color{green!50!black},
+  commentstyle=\color{gray},
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  numbersep=5pt,
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  captionpos=b
+}
+
+
 
 \title{Concetti}
 \author{Andrea Comar}
@@ -8,7 +44,7 @@
 \begin{document}
 \maketitle
 \tableofcontents
-
+\newpage
 
 \section{Automazione dei Test nell'ambito del Software Development}
 
@@ -248,12 +284,672 @@ Implementare il TDD può presentare delle difficoltà:
 \subsection{Conclusione}
 Il Test-Driven Development è una pratica potente che, se utilizzata correttamente, può migliorare significativamente la qualità del software e ridurre il debito tecnico. Sebbene richieda un investimento iniziale e un cambiamento di mentalità per molti sviluppatori, TDD si è dimostrato efficace nel creare applicazioni più robuste, facili da mantenere e ben documentate.
 
-\section{junit}
-\section{refactoring}
-\section{principi SOLID di programmazione}
-\section{clean code}
+
+\section{JUnit}
+JUnit è un framework di testing open-source ampiamente utilizzato in ambito Java per la scrittura e l'esecuzione di test unitari. È uno strumento fondamentale per garantire la qualità del software, supportando lo sviluppo orientato ai test (Test-Driven Development, TDD) e promuovendo la pratica del Continuous Integration (CI).
+
+\subsection{Cosa sono i test unitari?}
+I test unitari sono piccoli test che verificano il corretto funzionamento di una specifica parte del codice, come una singola funzione o un metodo di una classe. L'obiettivo è isolare quella porzione di codice e confermare che si comporti come previsto in diverse condizioni.
+
+\subsection{Caratteristiche principali di JUnit}
+\begin{itemize}
+    \item \textbf{Facilità d'uso}: JUnit è semplice da configurare e utilizzare, integrandosi facilmente in ambienti di sviluppo come Eclipse, IntelliJ e NetBeans.
+    \item \textbf{Annotazioni}: Utilizza annotazioni per definire metodi di test, cicli di vita del test, e condizioni di esecuzione.
+    \item \textbf{Assert}: Fornisce una serie di metodi \texttt{assert} per verificare le condizioni dei test, come \texttt{assertEquals}, \texttt{assertTrue}, \texttt{assertFalse}, e così via.
+    \item \textbf{Report di Test}: Genera report dettagliati sull'esito dei test, indicando quali test sono passati, falliti o sono stati ignorati.
+    \item \textbf{Integrazione con CI/CD}: Si integra perfettamente con strumenti di integrazione continua come Jenkins, GitHub Actions, e GitLab CI.
+\end{itemize}
+
+\subsection{Le principali annotazioni di JUnit}
+JUnit utilizza annotazioni per definire i metodi di test e il ciclo di vita del test. Ecco alcune delle annotazioni più importanti:
+
+\begin{enumerate}
+    \item \textbf{\texttt{@Test}}: Indica che il metodo è un caso di test.
+    \begin{lstlisting}
+@Test
+public void testSomma() {
+    assertEquals(5, 2 + 3);
+}
+    \end{lstlisting}
+
+    \item \textbf{\texttt{@BeforeEach}}: Eseguito prima di ogni metodo di test (prepara il contesto).
+    \begin{lstlisting}
+@BeforeEach
+public void setUp() {
+    // Codice di inizializzazione
+}
+    \end{lstlisting}
+
+    \item \textbf{\texttt{@AfterEach}}: Eseguito dopo ogni metodo di test (pulizia risorse).
+    \begin{lstlisting}
+@AfterEach
+public void tearDown() {
+    // Codice di pulizia
+}
+    \end{lstlisting}
+
+    \item \textbf{\texttt{@BeforeAll}}: Eseguito una sola volta prima di tutti i metodi di test (deve essere statico).
+    \begin{lstlisting}
+@BeforeAll
+public static void initAll() {
+    // Inizializzazione globale
+}
+    \end{lstlisting}
+
+    \item \textbf{\texttt{@AfterAll}}: Eseguito una sola volta dopo tutti i metodi di test (deve essere statico).
+    \begin{lstlisting}
+@AfterAll
+public static void cleanUpAll() {
+    // Pulizia finale
+}
+    \end{lstlisting}
+
+    \item \textbf{\texttt{@Disabled}}: Disattiva un test, utile per test non ancora pronti.
+    \begin{lstlisting}
+@Disabled
+@Test
+public void testNonPronto() {
+    // Questo test non verra eseguito 
+}
+    \end{lstlisting}
+\end{enumerate}
+
+\subsection{Esempio pratico di test con JUnit 5}
+Supponiamo di avere una classe \texttt{Calcolatrice} con un metodo \texttt{somma()} che vogliamo testare:
+
+\textbf{Classe da testare (\texttt{Calcolatrice.java}):}
+\begin{lstlisting}
+public class Calcolatrice {
+    public int somma(int a, int b) {
+        return a + b;
+    }
+}
+\end{lstlisting}
+
+\textbf{Classe di test (\texttt{CalcolatriceTest.java}):}
+\begin{lstlisting}
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class CalcolatriceTest {
+    private Calcolatrice calcolatrice;
+
+    @BeforeEach
+    public void setUp() {
+        calcolatrice = new Calcolatrice();
+    }
+
+    @Test
+    public void testSomma() {
+        assertEquals(5, calcolatrice.somma(2, 3), "La somma dovrebbe essere 5");
+    }
+}
+\end{lstlisting}
+
+\subsection{Esecuzione dei test}
+È possibile eseguire i test direttamente dal proprio ambiente di sviluppo (IDE) o tramite linea di comando utilizzando strumenti come Maven o Gradle:
+
+\begin{itemize}
+    \item \textbf{Con Maven}:
+    \begin{lstlisting}
+mvn test
+    \end{lstlisting}
+    
+    \item \textbf{Con Gradle}:
+    \begin{lstlisting}
+gradle test
+    \end{lstlisting}
+\end{itemize}
+
+\subsection{Benefici dell'uso di JUnit}
+\begin{itemize}
+    \item \textbf{Rilevamento precoce dei bug}: I test unitari rilevano bug prima che il software venga distribuito.
+    \item \textbf{Refactoring sicuro}: I test esistenti agiscono come una rete di sicurezza durante le modifiche al codice.
+    \item \textbf{Documentazione viva}: I test ben scritti fungono da documentazione eseguibile del comportamento del codice.
+    \item \textbf{Integrazione continua}: Facilita l'integrazione continua automatizzata per migliorare la qualità del software.
+\end{itemize}
+
+\subsection{Differenze tra JUnit 4 e JUnit 5}
+JUnit 5 è la versione più recente e introduce diverse novità rispetto a JUnit 4:
+\begin{itemize}
+    \item Modularità: JUnit 5 è suddiviso in tre moduli (\texttt{JUnit Platform}, \texttt{JUnit Jupiter}, e \texttt{JUnit Vintage}).
+    \item Lambda e metodi \texttt{assertAll}, \texttt{assertTimeout} più moderni.
+    \item Supporto migliorato per le estensioni (\texttt{@ExtendWith}).
+\end{itemize}
+
+\textbf{Esempio di \texttt{assertAll} in JUnit 5}:
+\begin{lstlisting}
+@Test
+void testMultiplo() {
+    assertAll("Multiplo di assert",
+        () -> assertEquals(2, 1 + 1),
+        () -> assertTrue(5 > 3),
+        () -> assertNotNull("Ciao")
+    );
+}
+\end{lstlisting}
+
+\subsection{Conclusione}
+JUnit è un pilastro fondamentale nello sviluppo di software Java, favorendo pratiche di sviluppo orientate ai test e contribuendo a una maggiore affidabilità del codice. La sua semplicità, combinata con una potente serie di funzionalità, lo rende uno strumento irrinunciabile per sviluppatori e team di sviluppo.
+
+
+\section{Refactoring }
+
+Il \textbf{refactoring} è una pratica fondamentale nello sviluppo software che consiste nel migliorare il design interno del codice esistente senza modificarne il comportamento esterno. L'obiettivo principale è rendere il codice più leggibile, manutenibile e facile da modificare, riducendo al contempo la complessità e migliorando la struttura.
+
+\subsection{Perché fare refactoring?}
+Il refactoring è importante per vari motivi:
+\begin{itemize}
+    \item \textbf{Migliorare la leggibilità}: Un codice più leggibile è più facile da comprendere per i membri del team e per i futuri sviluppatori che potrebbero lavorare sul progetto.
+    \item \textbf{Facilitare la manutenzione}: Con un codice ben strutturato, è più facile individuare e correggere bug, nonché aggiungere nuove funzionalità.
+    \item \textbf{Ridurre il debito tecnico}: Il debito tecnico è il risultato di decisioni di progettazione affrettate o compromessi nel codice. Il refactoring aiuta a ridurlo, migliorando la qualità del codice nel lungo periodo.
+    \item \textbf{Promuovere il riutilizzo}: Un codice modulare e ben organizzato facilita il riutilizzo di componenti in altre parti del progetto o in progetti futuri.
+    \item \textbf{Prevenire la degenerazione del codice}: Con il tempo, il codice tende a diventare disordinato (fenomeno noto come "software rot"), specialmente in progetti a lungo termine. Il refactoring aiuta a mantenere il codice in buone condizioni.
+\end{itemize}
+
+\subsection{Quando fare refactoring?}
+Il refactoring può essere eseguito in vari momenti dello sviluppo:
+\begin{itemize}
+    \item \textbf{Prima di aggiungere nuove funzionalità}: Pulire il codice esistente rende più facile l'integrazione di nuove funzionalità.
+    \item \textbf{Dopo aver corretto un bug}: Il refactoring può aiutare a prevenire futuri bug e migliorare la stabilità del sistema.
+    \item \textbf{Durante le revisioni del codice}: Se il codice esaminato è difficile da comprendere o modificare, è un buon candidato per il refactoring.
+    \item \textbf{Continuamente}: Molti team praticano il refactoring continuo, apportando miglioramenti incrementali durante il normale ciclo di sviluppo.
+\end{itemize}
+
+\subsection{Tecniche comuni di refactoring}
+Esistono diverse tecniche di refactoring che possono essere applicate a seconda delle necessità:
+
+\begin{enumerate}
+    \item \textbf{Rinomina di variabili, metodi e classi}:
+    Rendi i nomi più descrittivi per migliorare la comprensibilità del codice.
+    \begin{lstlisting}
+    // Prima
+    int a = 5;
+    int b = 10;
+    int c = a + b;
+    
+    // Dopo
+    int numero1 = 5;
+    int numero2 = 10;
+    int somma = numero1 + numero2;
+    \end{lstlisting}
+
+    \item \textbf{Estrai metodo (Extract Method)}:
+    Suddividi metodi lunghi in metodi più piccoli e riutilizzabili.
+    \begin{lstlisting}
+    // Prima
+    void stampaFattura() {
+        // Logica per calcolare il totale
+        double totale = calcolaTotale();
+        System.out.println("Totale: " + totale);
+    }
+    
+    // Dopo
+    void stampaFattura() {
+        double totale = calcolaTotale();
+        stampaTotale(totale);
+    }
+    
+    void stampaTotale(double totale) {
+        System.out.println("Totale: " + totale);
+    }
+    \end{lstlisting}
+
+    \item \textbf{Sostituisci codice duplicato (Eliminate Duplicated Code)}:
+    Identifica blocchi di codice ripetuti e spostali in un metodo comune.
+    \begin{lstlisting}
+    // Prima
+    double calcolaAreaQuadrato(double lato) {
+        return lato * lato;
+    }
+
+    double calcolaAreaCerchio(double raggio) {
+        return Math.PI * raggio * raggio;
+    }
+    
+    // Dopo (usando polimorfismo o una strategia comune)
+    interface Forma {
+        double calcolaArea();
+    }
+    
+    class Quadrato implements Forma {
+        double lato;
+        public double calcolaArea() { return lato * lato; }
+    }
+
+    class Cerchio implements Forma {
+        double raggio;
+        public double calcolaArea() { return Math.PI * raggio * raggio; }
+    }
+    \end{lstlisting}
+
+    \item \textbf{Semplifica le condizioni}:
+    Riduci la complessità di istruzioni condizionali.
+    \begin{lstlisting}
+    // Prima
+    if (status == 1 || status == 2 || status == 3) {
+        // Logica
+    }
+    
+    // Dopo
+    if (status >= 1 && status <= 3) {
+        // Logica
+    }
+    \end{lstlisting}
+
+    \item \textbf{Introdurre Oggetti Parametro}:
+    Quando un metodo ha troppi parametri, considerare la creazione di un oggetto per contenerli.
+    \begin{lstlisting}
+    // Prima
+    void creaOrdine(String nome, String indirizzo, String telefono) { ... }
+    
+    // Dopo
+    void creaOrdine(Cliente cliente) { ... }
+    
+    class Cliente {
+        String nome;
+        String indirizzo;
+        String telefono;
+    }
+    \end{lstlisting}
+\end{enumerate}
+
+\subsection{Strumenti di supporto al refactoring}
+Esistono vari strumenti che supportano il refactoring del codice in modo sicuro:
+\begin{itemize}
+    \item \textbf{IntelliJ IDEA}: Offre potenti funzionalità di refactoring automatizzato come estrazione di metodi, rinomina, e altro.
+    \item \textbf{Eclipse}: Include strumenti di refactoring integrati, come la conversione di blocchi di codice in metodi e la modifica del nome di variabili e classi.
+    \item \textbf{Visual Studio Code}: Supporta il refactoring per diversi linguaggi di programmazione tramite estensioni.
+    \item \textbf{ReSharper}: Un'estensione per Visual Studio che fornisce strumenti avanzati di refactoring.
+\end{itemize}
+
+\subsection{Buone pratiche per il refactoring}
+\begin{itemize}
+    \item \textbf{Scrivi test prima del refactoring}: I test automatizzati ti aiutano a garantire che il comportamento del codice non cambi durante il refactoring.
+    \item \textbf{Apporta cambiamenti incrementali}: Evita grandi refactoring in un'unica volta. Migliora il codice passo dopo passo per ridurre il rischio di introdurre bug.
+    \item \textbf{Usa il version control}: Il controllo di versione (come Git) ti permette di annullare facilmente modifiche se qualcosa va storto.
+    \item \textbf{Mantieni la semplicità}: Segui il principio KISS (Keep It Simple, Stupid) e cerca di mantenere il codice il più semplice possibile.
+\end{itemize}
+
+\subsection{Conclusione}
+Il refactoring è una pratica cruciale per mantenere la qualità del software nel tempo. Aiuta a migliorare la manutenibilità, riduce i rischi associati alle modifiche e rende il codice più comprensibile per gli sviluppatori attuali e futuri. Sebbene richieda tempo e risorse, i benefici a lungo termine superano di gran lunga i costi iniziali.
+
+
+
+
+\section{Principi SOLID di programmazione}
+
+I principi \textbf{SOLID} sono un insieme di linee guida per progettare software più comprensibile, manutenibile e flessibile. Sono stati definiti da Robert C. Martin (conosciuto anche come \textit{Uncle Bob}) e sono considerati fondamentali nello sviluppo software orientato agli oggetti.
+
+\subsection{Single Responsibility Principle (SRP)}
+\textbf{Principio di singola responsabilità}: Ogni classe dovrebbe avere una, e una sola, responsabilità. In altre parole, una classe dovrebbe avere un solo motivo per cambiare.
+
+\begin{lstlisting}
+// Prima: violazione del SRP
+class ReportGenerator {
+    void generateReport() { /* Generazione report */ }
+    void printReport() { /* Logica di stampa */ }
+}
+
+// Dopo: applicazione del SRP
+class ReportGenerator {
+    void generateReport() { /* Generazione report */ }
+}
+
+class ReportPrinter {
+    void printReport() { /* Logica di stampa */ }
+}
+\end{lstlisting}
+
+\subsection{Open/Closed Principle (OCP)}
+\textbf{Principio aperto/chiuso}: Il software dovrebbe essere aperto all'estensione, ma chiuso alla modifica. Ciò significa che possiamo aggiungere nuove funzionalità senza modificare il codice esistente.
+
+\begin{lstlisting}
+// Prima: violazione dell'OCP
+class Rectangle {
+    double width, height;
+}
+
+class AreaCalculator {
+    double calculateArea(Rectangle rect) {
+        return rect.width * rect.height;
+    }
+}
+
+// Dopo: applicazione dell'OCP usando polimorfismo
+interface Shape {
+    double calculateArea();
+}
+
+class Rectangle implements Shape {
+    double width, height;
+    public double calculateArea() {
+        return width * height;
+    }
+}
+
+class Circle implements Shape {
+    double radius;
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+\end{lstlisting}
+
+\subsection{Liskov Substitution Principle (LSP)}
+\textbf{Principio di sostituzione di Liskov}: Le classi derivate devono poter essere sostituite alle loro classi base senza alterare il corretto funzionamento del programma.
+
+\begin{lstlisting}
+// Prima: violazione del LSP
+class Bird {
+    void fly() { /* Volare */ }
+}
+
+class Ostrich extends Bird {
+    void fly() { throw new UnsupportedOperationException(); }
+}
+
+// Dopo: applicazione del LSP
+interface Flyable {
+    void fly();
+}
+
+class Sparrow implements Flyable {
+    public void fly() { /* Volare */ }
+}
+
+class Ostrich { /* Nessuna implementazione di fly() */ }
+\end{lstlisting}
+
+\subsection{Interface Segregation Principle (ISP)}
+\textbf{Principio di segregazione delle interfacce}: È meglio avere molte interfacce specifiche piuttosto che una singola interfaccia generica. Le classi non dovrebbero essere obbligate a implementare metodi che non usano.
+
+\begin{lstlisting}
+// Prima: violazione dell'ISP
+interface Worker {
+    void work();
+    void eat();
+}
+
+class Robot implements Worker {
+    public void work() { /* Lavorare */ }
+    public void eat() { /* Non applicabile per i robot */ }
+}
+
+// Dopo: applicazione dell'ISP
+interface Workable {
+    void work();
+}
+
+interface Eatable {
+    void eat();
+}
+
+class Human implements Workable, Eatable {
+    public void work() { /* Lavorare */ }
+    public void eat() { /* Mangiare */ }
+}
+
+class Robot implements Workable {
+    public void work() { /* Lavorare */ }
+}
+\end{lstlisting}
+
+\subsection{Dependency Inversion Principle (DIP)}
+\textbf{Principio di inversione delle dipendenze}: Le classi di alto livello non dovrebbero dipendere da classi di basso livello, ma entrambe dovrebbero dipendere da astrazioni. Inoltre, le astrazioni non dovrebbero dipendere dai dettagli, ma i dettagli dovrebbero dipendere dalle astrazioni.
+
+\begin{lstlisting}
+// Prima: violazione del DIP
+class LightBulb {
+    void turnOn() { /* Accendere la lampadina */ }
+}
+
+class Switch {
+    LightBulb bulb;
+    void operate() { bulb.turnOn(); }
+}
+
+// Dopo: applicazione del DIP
+interface Switchable {
+    void turnOn();
+}
+
+class LightBulb implements Switchable {
+    public void turnOn() { /* Accendere la lampadina */ }
+}
+
+class Switch {
+    Switchable device;
+    void operate() { device.turnOn(); }
+}
+\end{lstlisting}
+
+\subsection{Conclusione}
+I principi SOLID sono fondamentali per la progettazione di un software robusto e flessibile. L'applicazione di questi principi riduce la complessità del codice, aumenta la sua riusabilità e migliora la capacità di adattarsi ai cambiamenti. Mantenere il codice orientato a questi principi porta a sistemi più manutenibili e scalabili nel lungo termine.
+
+
+\section{Clean Code in ambito software}
+
+Il concetto di \textbf{Clean Code} (codice pulito) è stato reso popolare da \textit{Robert C. Martin} nel suo libro \textit{Clean Code: A Handbook of Agile Software Craftsmanship}. Si riferisce a un insieme di pratiche e principi che mirano a scrivere codice chiaro, semplice, leggibile e manutenibile. Il clean code è facile da capire, sia per chi lo scrive che per chi dovrà lavorarci in futuro, e aiuta a ridurre i costi di manutenzione e sviluppo nel lungo termine.
+
+\subsection{Caratteristiche del Clean Code}
+Il clean code presenta una serie di caratteristiche fondamentali:
+\begin{itemize}
+    \item \textbf{Leggibile}: Il codice dovrebbe essere facilmente comprensibile. Ogni parte del codice dovrebbe essere chiara e intuibile senza richiedere troppo contesto.
+    \item \textbf{Semplice}: Un buon codice è quello che risolve il problema nel modo più semplice possibile. Ciò significa evitare complessità inutili e preferire soluzioni chiare e dirette.
+    \item \textbf{Manutenibile}: Il codice dovrebbe essere facile da modificare e adattare. Ciò implica un buon design, la modularità, e un basso accoppiamento tra componenti.
+    \item \textbf{Testabile}: Un codice pulito dovrebbe essere facile da testare. L'uso di funzioni pure, classi ben definite e separazione delle responsabilità contribuisce a rendere il codice testabile.
+    \item \textbf{Elegante}: Il clean code dovrebbe essere bello da vedere. Questo si traduce in un uso efficace delle convenzioni del linguaggio e in una buona organizzazione del codice.
+\end{itemize}
+
+\subsection{Principi fondamentali del Clean Code}
+
+\subsubsection{Nomina significativa}
+Usare nomi chiari e descrittivi per variabili, funzioni e classi è una pratica fondamentale.
+\begin{lstlisting}
+// Esempio di codice non pulito
+int d; // cosa rappresenta 'd'?
+if (d == 1) { ... }
+
+// Esempio di clean code
+int giorniRimanenti;
+if (giorniRimanenti == 1) { ... }
+\end{lstlisting}
+
+\subsubsection{Funzioni piccole e focalizzate}
+Le funzioni dovrebbero essere brevi e fare una sola cosa. Funzioni lunghe e complesse sono difficili da leggere e testare.
+\begin{lstlisting}
+// Esempio di codice non pulito
+void processaOrdine() {
+    // Calcolo sconto
+    // Generazione fattura
+    // Invio email di conferma
+}
+
+// Esempio di clean code
+void applicaSconto() { ... }
+void generaFattura() { ... }
+void inviaEmailConferma() { ... }
+\end{lstlisting}
+
+\subsubsection{Evita i commenti inutili}
+Il codice dovrebbe essere auto-esplicativo. I commenti dovrebbero essere usati solo per chiarire parti veramente complesse, non per spiegare cosa fa un blocco di codice semplice.
+\begin{lstlisting}
+// Esempio di codice non pulito
+int x = 10; // Inizializza x con 10
+
+// Esempio di clean code
+int tentativiMassimi = 10;
+\end{lstlisting}
+
+\subsubsection{Principio DRY (Don't Repeat Yourself)}
+Il principio \textbf{DRY} incoraggia a evitare la duplicazione del codice. Blocchi di codice ripetuti dovrebbero essere estratti in funzioni o classi riutilizzabili.
+\begin{lstlisting}
+// Esempio di codice non pulito
+double calcolaAreaRettangolo(double larghezza, double altezza) {
+    return larghezza * altezza;
+}
+
+double calcolaAreaQuadrato(double lato) {
+    return lato * lato;
+}
+
+// Esempio di clean code
+interface Forma {
+    double calcolaArea();
+}
+
+class Rettangolo implements Forma {
+    double larghezza, altezza;
+    public double calcolaArea() { return larghezza * altezza; }
+}
+
+class Quadrato implements Forma {
+    double lato;
+    public double calcolaArea() { return lato * lato; }
+}
+\end{lstlisting}
+
+\subsubsection{Principio KISS (Keep It Simple, Stupid)}
+Mantieni il codice il più semplice possibile. La semplicità porta a una maggiore leggibilità e a un minor numero di bug.
+\begin{lstlisting}
+// Esempio di codice non pulito
+if (utente != null && utente.getRuolo() != null && utente.getRuolo().equals("admin")) {
+    // Logica per amministratore
+}
+
+// Esempio di clean code
+if (utenteEAmministratore(utente)) {
+    // Logica per amministratore
+}
+\end{lstlisting}
+
+\subsubsection{Evita i Magic Numbers}
+I \textbf{Magic Numbers} sono numeri senza un significato evidente. È meglio usare costanti con nomi significativi.
+\begin{lstlisting}
+// Esempio di codice non pulito
+double area = 3.14 * raggio * raggio;
+
+// Esempio di clean code
+final double PI_GRECO = 3.14;
+double area = PI_GRECO * raggio * raggio;
+\end{lstlisting}
+
+\subsection{Refactoring per ottenere Clean Code}
+Il \textbf{refactoring} è il processo di ristrutturazione del codice esistente senza alterarne il comportamento esterno. Serve a migliorare la leggibilità, ridurre la complessità e mantenere la qualità del codice.
+
+\begin{lstlisting}
+// Prima del refactoring
+class Cliente {
+    void processa() {
+        // Calcola sconto
+        // Genera fattura
+        // Invia email
+    }
+}
+
+// Dopo il refactoring
+class Cliente {
+    void processa() {
+        calcolaSconto();
+        generaFattura();
+        inviaEmail();
+    }
+    
+    private void calcolaSconto() { ... }
+    private void generaFattura() { ... }
+    private void inviaEmail() { ... }
+}
+\end{lstlisting}
+
+\subsection{Conclusione}
+Adottare il clean code è essenziale per mantenere un codice di alta qualità. Seguendo le linee guida per un codice pulito, gli sviluppatori possono ridurre i costi di manutenzione, migliorare la leggibilità e facilitare la collaborazione tra i membri del team. Scrivere clean code non è solo una questione di stile, ma una buona pratica che porta a sistemi software più robusti e sostenibili nel lungo termine.
+
+
 \section{git}
-\section{continuous deployment}
+\section{Continuous Deployment in ambito software}
+
+Il \textbf{Continuous Deployment} (CD) è una pratica avanzata di sviluppo software che fa parte delle metodologie DevOps. Consiste nell'automazione del processo di rilascio del software, in modo che le modifiche al codice vengano distribuite automaticamente negli ambienti di produzione senza necessità di intervento manuale. Questa pratica consente alle aziende di rilasciare rapidamente nuove funzionalità, migliorare la qualità del software e rispondere in modo agile alle esigenze del mercato.
+
+\subsection{Caratteristiche del Continuous Deployment}
+Le caratteristiche principali del Continuous Deployment includono:
+\begin{itemize}
+    \item \textbf{Automazione del rilascio}: Il codice scritto dagli sviluppatori passa automaticamente attraverso un processo di integrazione e distribuzione senza interruzioni manuali, fino ad arrivare in produzione.
+    \item \textbf{Feedback immediato}: Gli sviluppatori ricevono feedback in tempo reale su come le loro modifiche influenzano il sistema, grazie all'uso di test automatizzati e monitoraggio continuo.
+    \item \textbf{Rilascio frequente}: Consente rilasci frequenti e regolari, aumentando la velocità con cui le nuove funzionalità, miglioramenti e correzioni di bug raggiungono gli utenti finali.
+    \item \textbf{Riduzione del rischio}: Automatizzando i test e i processi di deployment, si riducono gli errori umani e si minimizza il rischio di bug introdotti durante il rilascio.
+    \item \textbf{Affidabilità}: Attraverso l'automazione, è possibile avere un processo di distribuzione affidabile e ripetibile, garantendo che ogni release segua lo stesso flusso.
+\end{itemize}
+
+\subsection{Differenze tra Continuous Integration, Continuous Delivery e Continuous Deployment}
+È importante distinguere tra i concetti di \textbf{Continuous Integration (CI)}, \textbf{Continuous Delivery (CD)} e \textbf{Continuous Deployment (CD)}:
+\begin{itemize}
+    \item \textbf{Continuous Integration (CI)}: Si riferisce all'automazione del processo di integrazione del codice nel repository condiviso, eseguendo test automatici per verificare che le modifiche non introducano errori.
+    \item \textbf{Continuous Delivery (CD)}: Estende la CI aggiungendo l'automazione dei test e della distribuzione negli ambienti di staging o pre-produzione. Tuttavia, il rilascio in produzione richiede ancora un'approvazione manuale.
+    \item \textbf{Continuous Deployment (CD)}: È il livello successivo al Continuous Delivery, dove ogni modifica che supera i test viene distribuita automaticamente in produzione senza interventi manuali.
+\end{itemize}
+
+\subsection{Architettura del Continuous Deployment}
+Un tipico flusso di lavoro di Continuous Deployment comprende i seguenti passaggi:
+\begin{enumerate}
+    \item \textbf{Commit del codice}: Gli sviluppatori scrivono e inviano il codice al repository di controllo versione (ad es. Git).
+    \item \textbf{Build automatizzata}: Un sistema di integrazione continua (ad es. Jenkins, GitLab CI, Travis CI) rileva il nuovo commit, avvia una build automatizzata e verifica che il codice possa essere compilato correttamente.
+    \item \textbf{Test automatici}: Vengono eseguiti una serie di test automatici, tra cui test unitari, test di integrazione, test funzionali e test di sicurezza.
+    \item \textbf{Deployment automatico}: Se tutti i test passano, il sistema di Continuous Deployment esegue automaticamente il deployment della nuova versione del software negli ambienti di produzione.
+    \item \textbf{Monitoraggio e feedback}: Dopo il rilascio, vengono attivati strumenti di monitoraggio per rilevare eventuali problemi in tempo reale. Se viene rilevato un problema critico, è possibile eseguire un rollback automatico.
+\end{enumerate}
+
+\subsection{Esempio di Pipeline di Continuous Deployment}
+Di seguito un esempio di pipeline di Continuous Deployment definita in YAML per un sistema CI/CD come GitLab:
+
+\begin{lstlisting}[language=yaml, caption={Esempio di pipeline CI/CD in YAML}]
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "Compilazione del progetto..."
+    - mvn clean package
+
+test:
+  stage: test
+  script:
+    - echo "Esecuzione dei test..."
+    - mvn test
+  allow_failure: false
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploy in ambiente di produzione..."
+    - kubectl apply -f deployment.yaml
+  environment: production
+  only:
+    - main
+\end{lstlisting}
+
+\subsection{Vantaggi del Continuous Deployment}
+\begin{itemize}
+    \item \textbf{Riduzione del Time-to-Market}: Permette di rilasciare nuove funzionalità e correzioni di bug più rapidamente.
+    \item \textbf{Miglioramento della qualità del software}: I test automatici garantiscono che solo il codice di alta qualità venga rilasciato in produzione.
+    \item \textbf{Feedback continuo}: Permette di ottenere feedback immediato dagli utenti finali, facilitando miglioramenti rapidi e iterativi.
+    \item \textbf{Scalabilità}: È particolarmente utile per ambienti cloud, dove le risorse possono essere scalate automaticamente in base al carico.
+\end{itemize}
+
+\subsection{Sfide del Continuous Deployment}
+\begin{itemize}
+    \item \textbf{Elevata copertura dei test}: È necessario un insieme completo di test automatici per garantire che il codice sia privo di bug.
+    \item \textbf{Monitoraggio e rollback}: È essenziale implementare un monitoraggio robusto e una strategia di rollback automatica per gestire eventuali problemi post-rilascio.
+    \item \textbf{Cultura del DevOps}: Il Continuous Deployment richiede una stretta collaborazione tra sviluppatori, tester e team operativi, oltre a una cultura di miglioramento continuo.
+\end{itemize}
+
+\subsection{Conclusione}
+Il Continuous Deployment rappresenta un approccio moderno ed efficiente per il rilascio del software, che consente alle aziende di innovare rapidamente e migliorare la soddisfazione degli utenti finali. Tuttavia, per implementare correttamente questa pratica, è necessario investire in strumenti di automazione, test approfonditi e una cultura DevOps consolidata.
+
 \section{unit testing}
 \section{maven}
 \section{make}
