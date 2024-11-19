@@ -1,35 +1,35 @@
-\contentsline {part}{I\hspace {1em} Titolo parte }{2}{}%
-\contentsline {section}{\numberline {1} Titolo sezione }{2}{}%
-\contentsline {subsection}{\numberline {1.1} subsection }{2}{}%
-\contentsline {section}{\numberline {2} Titolo sezione }{2}{}%
-\contentsline {subsection}{\numberline {2.1} titolo sottosezione}{2}{}%
-\contentsline {paragraph}{titolo paragrafo}{2}{}%
-\contentsline {subparagraph}{titolo sottoparagrafo }{2}{}%
-\contentsline {subparagraph}{secondo sottoparagrafo}{2}{}%
-\contentsline {part}{II\hspace {1em} Cose utili }{3}{}%
-\contentsline {section}{\numberline {3}Nuovo documento}{3}{}%
-\contentsline {section}{\numberline {4}pacchetti utili}{3}{}%
-\contentsline {paragraph}{graphicx}{3}{}%
-\contentsline {paragraph}{amssymb}{3}{}%
-\contentsline {paragraph}{mathtools}{3}{}%
-\contentsline {paragraph}{algorithm2e}{3}{}%
-\contentsline {paragraph}{listings}{3}{}%
-\contentsline {paragraph}{color}{4}{}%
-\contentsline {section}{\numberline {5}Comandi scrittura}{4}{}%
-\contentsline {paragraph}{\textbackslash verbatin}{4}{}%
-\contentsline {paragraph}{\textbackslash begin\{tabbing\}}{4}{}%
-\contentsline {paragraph}{\textbackslash textcolor\{colore\}\{testo\}}{4}{}%
-\contentsline {paragraph}{\textbackslash textit\{testo\}}{4}{}%
-\contentsline {paragraph}{\textbackslash textbf\{testo\}}{4}{}%
-\contentsline {paragraph}{\textbackslash underline\{testo\}}{4}{}%
-\contentsline {section}{\numberline {6}Utilizzo delle tabelle}{4}{}%
-\contentsline {subsection}{\numberline {6.1}ambiente tabular}{5}{}%
-\contentsline {subsection}{\numberline {6.2}Esempio tabella}{6}{}%
-\contentsline {section}{\numberline {7}Simboli utili}{7}{}%
-\contentsline {subsection}{\numberline {7.1}Simboli matematici}{7}{}%
-\contentsline {section}{\numberline {8}Utilizzo di algorithm2e}{7}{}%
-\contentsline {paragraph}{For}{8}{}%
-\contentsline {paragraph}{ForEach}{8}{}%
-\contentsline {paragraph}{while}{8}{}%
-\contentsline {paragraph}{If}{9}{}%
-\contentsline {paragraph}{Else}{10}{}%
+\contentsline {part}{I\hspace {1em} Titolo parte }{2}{part.1}%
+\contentsline {section}{\numberline {1} Titolo sezione }{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1} subsection }{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2} Titolo sezione }{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1} titolo sottosezione}{2}{subsection.2.1}%
+\contentsline {paragraph}{titolo paragrafo}{2}{section*.2}%
+\contentsline {subparagraph}{titolo sottoparagrafo }{2}{section*.3}%
+\contentsline {subparagraph}{secondo sottoparagrafo}{2}{section*.4}%
+\contentsline {part}{II\hspace {1em} Cose utili }{3}{part.2}%
+\contentsline {section}{\numberline {3}Nuovo documento}{3}{section.3}%
+\contentsline {section}{\numberline {4}pacchetti utili}{3}{section.4}%
+\contentsline {paragraph}{graphicx}{3}{section*.5}%
+\contentsline {paragraph}{amssymb}{3}{section*.6}%
+\contentsline {paragraph}{mathtools}{3}{section*.7}%
+\contentsline {paragraph}{algorithm2e}{3}{section*.8}%
+\contentsline {paragraph}{listings}{3}{section*.9}%
+\contentsline {paragraph}{color}{4}{section*.10}%
+\contentsline {section}{\numberline {5}Comandi scrittura}{4}{section.5}%
+\contentsline {paragraph}{\textbackslash verbatin}{4}{section*.11}%
+\contentsline {paragraph}{\textbackslash begin\{tabbing\}}{4}{section*.12}%
+\contentsline {paragraph}{\textbackslash textcolor\{colore\}\{testo\}}{4}{section*.13}%
+\contentsline {paragraph}{\textbackslash textit\{testo\}}{4}{section*.14}%
+\contentsline {paragraph}{\textbackslash textbf\{testo\}}{4}{section*.15}%
+\contentsline {paragraph}{\textbackslash underline\{testo\}}{4}{section*.16}%
+\contentsline {section}{\numberline {6}Utilizzo delle tabelle}{4}{section.6}%
+\contentsline {subsection}{\numberline {6.1}ambiente tabular}{5}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Esempio tabella}{6}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Simboli utili}{7}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Simboli matematici}{7}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Utilizzo di algorithm2e}{7}{section.8}%
+\contentsline {paragraph}{For}{8}{section*.17}%
+\contentsline {paragraph}{ForEach}{8}{section*.18}%
+\contentsline {paragraph}{while}{8}{section*.19}%
+\contentsline {paragraph}{If}{9}{section*.20}%
+\contentsline {paragraph}{Else}{10}{section*.21}%
