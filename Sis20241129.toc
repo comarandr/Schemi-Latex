@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}paginazione}{1}{}%
+\contentsline {section}{\numberline {2}segmentazione}{1}{}%
+\contentsline {subsection}{\numberline {2.1}implementazione page table - + livelli e tlb}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Tecnica della page table invertita}{2}{}%
+\contentsline {subsection}{\numberline {2.3}frammentazione esterna}{3}{}%
+\contentsline {subsection}{\numberline {2.4}memoria virtuale}{3}{}%
