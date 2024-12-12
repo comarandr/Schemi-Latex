@@ -50,3 +50,4 @@
 \contentsline {section}{\numberline {16}Scheduling dei processi}{11}{section.16}%
 \contentsline {part}{V\hspace {1em}Scheduling CPU}{11}{part.5}%
 \contentsline {section}{\numberline {17}Introduzione}{11}{section.17}%
+\contentsline {part}{VI\hspace {1em}Esercizi}{11}{part.6}%
