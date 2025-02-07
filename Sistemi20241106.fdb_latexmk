@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1731068607.20938 "c:/Users/comar/Documents/Codice/Schemi Latex/Sistemi20241106.tex" "Sistemi20241106.pdf" "Sistemi20241106" 1731068608.41059 0
-  "C:/Users/comar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1730813541 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
-  "C:/Users/comar/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1729506474 24225047 163f94aac17027b86a8975cd1280876b ""
+["pdflatex"] 1734699229.82608 "c:/Users/comar/Documents/Codice/schemilatex/Sistemi20241106.tex" "Sistemi20241106.pdf" "Sistemi20241106" 1734699230.35545 0
+  "C:/Users/comar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1730650304 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+  "C:/Users/comar/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1729599751 24225047 0a8fb73b33d0a18a3f7992475d979279 ""
   "C:/Users/comar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/comar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "C:/Users/comar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -36,9 +36,9 @@
   "C:/Users/comar/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1665067579 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
   "C:/Users/comar/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty" 1665067579 4023 293ea1c16429fc0c4cf605f4da1791a9 ""
   "C:/Users/comar/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1704400941 30006 57b07afb710ee2f649c65cfbafda39c1 ""
-  "Sistemi20241106.aux" 1731068608 1151 b080546e7bbae59132a17a7cee39d6d3 "pdflatex"
-  "Sistemi20241106.tex" 1731068442 10348 f2c25a238027b92d7c8a70c9a25a5f3e ""
-  "c:/Users/comar/Documents/Codice/Schemi Latex/Sistemi20241106.tex" 1731068442 10348 f2c25a238027b92d7c8a70c9a25a5f3e ""
+  "Sistemi20241106.aux" 1734699230 1151 b080546e7bbae59132a17a7cee39d6d3 "pdflatex"
+  "Sistemi20241106.tex" 1734699229 10501 7a35129c3bb83f0487b9baea5e3442f2 ""
+  "c:/Users/comar/Documents/Codice/schemilatex/Sistemi20241106.tex" 1734699229 10501 7a35129c3bb83f0487b9baea5e3442f2 ""
   (generated)
   "Sistemi20241106.aux"
   "Sistemi20241106.log"

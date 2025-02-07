@@ -1,6 +1,6 @@
-PWD c:\Users\comar\Documents\Codice\Schemi Latex
+PWD c:\Users\comar\Documents\Codice\schemilatex
 INPUT C:\Users\comar\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\comar\Documents\Codice\Schemi Latex\Sistemi20241106.tex
+INPUT c:\Users\comar\Documents\Codice\schemilatex\Sistemi20241106.tex
 OUTPUT Sistemi20241106.log
 INPUT C:\Users\comar\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\comar\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
