@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.21)  22 JAN 2025 16:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.21)  22 JAN 2025 16:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/comar/Documents/Codice/schemilatex/SistemiOperativi.tex
-(c:/Users/comar/Documents/Codice/schemilatex/SistemiOperativi.tex
+**c:/Users/comar/Documents/Codice/schemilatex/sistemiteoria.tex
+(c:/Users/comar/Documents/Codice/schemilatex/sistemiteoria.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\comar\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -290,8 +290,8 @@ Package: listings 2023/02/27 1.9 (Carsten Heinz)
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count297
 \l__pdf_internal_box=\box56
-) (SistemiOperativi.aux)
-\openout1 = `SistemiOperativi.aux'.
+) (sistemiteoria.aux)
+\openout1 = `sistemiteoria.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
@@ -331,44 +331,44 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 17.
- (SistemiOperativi.out) (SistemiOperativi.out)
+ (sistemiteoria.out) (sistemiteoria.out)
 \@outlinefile=\write3
-\openout3 = `SistemiOperativi.out'.
+\openout3 = `sistemiteoria.out'.
 
 \c@lstlisting=\count304
-LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
  (C:\Users\comar\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
  (C:\Users\comar\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/comar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (SistemiOperativi.toc [2])
+{C:/Users/comar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (sistemiteoria.toc)
 \tf@toc=\write4
-\openout4 = `SistemiOperativi.toc'.
+\openout4 = `sistemiteoria.toc'.
 
- [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] (SistemiOperativi.aux)
+ [2] [3] (sistemiteoria.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-Package rerunfilecheck Info: File `SistemiOperativi.out' has not changed.
-(rerunfilecheck)             Checksum: 336A9A364BA7CFEFE1501D3C20AE5922;8291.
+Package rerunfilecheck Info: File `sistemiteoria.out' has not changed.
+(rerunfilecheck)             Checksum: B7CAF72A3ACEBBB8970FBCE49B1EE422;121.
  ) 
 Here is how much of TeX's memory you used:
- 12035 strings out of 474486
- 184678 string characters out of 5743754
- 1936542 words of memory out of 5000000
- 34090 multiletter control sequences out of 15000+600000
- 571602 words of font info for 72 fonts, out of 8000000 for 9000
+ 11897 strings out of 474486
+ 182939 string characters out of 5743754
+ 1926542 words of memory out of 5000000
+ 34029 multiletter control sequences out of 15000+600000
+ 568106 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,382b,518s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on SistemiOperativi.pdf (13 pages, 173973 bytes).
+ 75i,6n,79p,332b,441s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\comar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
+Output written on sistemiteoria.pdf (3 pages, 29162 bytes).
 PDF statistics:
- 690 PDF objects out of 1000 (max. 8388607)
- 78 named destinations out of 1000 (max. 500000)
- 385 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 113 PDF objects out of 1000 (max. 8388607)
+ 6 named destinations out of 1000 (max. 500000)
+ 9 words of extra memory for PDF output out of 10000 (max. 10000000)
 
