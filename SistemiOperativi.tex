@@ -9,7 +9,7 @@
 \usepackage{hyperref} %per i link
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-\usepackage{listings} %per inserire codice
+
 \title{Sistemi Operativi - Teoria}
 \author{Andrea Comar}
 \date{\today}
@@ -44,8 +44,7 @@ Le componenti di un sistema di calcolo sono:
 \section{Storia}
 \subsection{Esordi}
 I primi calcolatori erano molto ingombranti 
-e funzionavano unicamente da console, con un solo utente alla volta. Utilizzavano schede di collegamento 
-poi I\O su nastro perforato o schede perforate
+e funzionavano unicamente da console, con un solo utente alla volta.
 \subsection{II Generazione: Transistor  e sistemi batch} 
 
 \subsection{III Generazione: Sistemi multiprogrammati}
@@ -242,82 +241,13 @@ immediatamente scalabile in ambiente di rete.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \part{Processi e Thread} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Concetto di processo}
 \paragraph{programma:} entità statica che risiede in un file su disco.
-\paragraph{processo:} è la parte \textbf{dinamica} di un programma generata da un'esecuzione del programma stesso. Ogni processo ha il suo program counter di tipo logico.
+\paragraph{processo:} è la parte \textbf{dinamica} di un programma generata da un'esecuzione del programma stesso.
 \paragraph{job:} è l'insieme dei processi (o il singolo processo) generati da una singola linea di comando che occorrono in pipeline.
-\paragraph{multiprogrammazione:} tecnica in cui più processi risiedono in memoria principale allo stesso tempo, in modo da tenere occupata la CPU.
-\paragraph{time-sharing:} tecnica in cui la CPU è condivisa tra più processi, in modo che ognuno abbia l'impressione di avere la CPU dedicata.
-
 \section{Operazioni sui processi}
-\subsection{switch di contesto}
-Passaggio della cpu da un processo all'altro. Il tempo di context-switch porta a un certo overhead, in quanto include:
-\begin{itemize}
-    \item salvataggio dello stato del processo corrente
-    \item caricamento dello stato del processo successivo
-    \item cambiamento dello spazio di indirizzamento
-\end{itemize}
-(appunti 2024-10-11)
-In un sistema ad alto parallelismo può rappresentare un collo di bottiglia, il tempo di di switch dipende dall'hardware delll'architettura.
-Uno switch di contesto può venire quando il processo termina oppure a seguito di una system call bloccante o prelazione.
-
-\subsection{Creazione di un processo:}
-Un processo può essere creato al boot del sistema, all'esecuzione di una system call (es. fork()), 
-oppure su richiesta da parte dell'utente o all'inizio di un job batch. La generazione dei processi induce a una gerarchia detta 
-albero di processi.
-
-\begin{itemize}
-    \item \textbf{padre:} processo che crea un altro processo
-    \item \textbf{figlio:} processo creato da un altro processo
-\end{itemize}
-
-L'esecuzione del processo padre e figlio sono concorrenti, il padre generalmente viene sospeso fino al completamento del padre. La 
-condivisione delle risorse può essere totale (condividono le stesse risorse) oppure parziale (sottoinsieme) oppure assente (nessuna risorsa condivisa). Per quanto riguarda lo 
-spazio indirizzi possono essere una duplicazione (es. fork()) oppure i figli caricano un programma (CreateProcess()).
-
-\subsection{Terminazione di un processo:}
-Un processo può terminare volontariamente, sia normalmente sia tramite una \textbf{exit}, ovvero un errore. L'output viene 
-raccolto dal padre che era in attesa (wait()).
-Oppure può terminare involotariamente, ad esempio per errore fatale (superamento limiti, operazioni illegali).
-Altrimenti la terminazione può essere causata da un altro processo (kill()) o da parte del kernel. Il sistema operativo 
-dealloca le risorse del processo terminato.
-
-\subsection{Gerarchia dei processi:}
-I processi figli e genitore possono rimanere collegati, creando delle famiglie chiamate \textbf{gruppi di processi}. I gruppi 
-sono utili per la comunicazione.  
-In UNIX tutti i processi discendono da \textbf{init}, il processo di sistema. Se un parent muore, il figlio viene ereditato da init. 
-Un processo non può diseredare il padre.
-
-\subsection{Stati dei processi:}
-Durante l'esecuzione il processo un processo può trovarsi in diversi stati:
-\begin{itemize}
-    \item \textbf{new}: il processo è in fase di creazione
-    \item \textbf{ready}: il processo è pronto per l'esecuzione
-    \item \textbf{running}: il processo è in esecuzione
-    \item \textbf{waiting}: il processo è in attesa di un evento (es. I/O)
-    \item \textbf{terminated}: il processo ha terminato l'esecuzione
-\end{itemize}
-
-Il passaggio da uno stato all'altro avviene in seguito a interruzioni, richieste di risorse non disponibili, selezione da parte di uno scheduler.
-(diagramma degli stati)
-
-\subsection{Process Control Block - PCB}
-Contiene le informazioni associate a un processo, tra cui stato, dati identificativi, program counter, registri cpu, informazioni per lo scheduling, 
-informazione(...)
-
-\subsection{Gli scheduler}
-\paragraph{scheduler:} è un componente del sistema operativo che si occupa di decidere quale processo passa da una coda all'altra.
-Esistono diversi tipi di scheduler:
-\begin{itemize}
-    \item \textbf{scheduler di lungo termine}: decide quali processi devono finire in ready queue (detto anche job scheduler)
-    \item \textbf{short-term scheduler}: decide quale processo in ready deve essere eseguito, assegnando la cpu. Poiché viene invocato molto frequentemente deve essere molto veloce.
-    \item \textbf{medium-term scheduler}: decide quali processi devono essere rimossi dalla memoria principale per liberare spazio, abbassando il livello di multiprogrammazione. è detto anche swap scheduler.
-\end{itemize}
-
-\subsection{Modelli di esecuzione dei processi:}
-Esecuzioni kernel separata dai processi utente, esecuzione kernel all'interno dei processi. (..)
+\section{Stati dei processi}
 \section{Threads}
 \section{Scheduling dei processi}
 
@@ -335,8 +265,7 @@ Ogni processo è caratterizzato da un \textbf{ciclo Burst CPU-I/O} che consiste 
 di esecuzione di CPU e attesa di I/O.
 
 
-
-\part{Esercizi}
+$\displaystyle > - \sum_{\infty}^{\infty}  $
 
 
 

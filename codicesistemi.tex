@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\title{Codici di sistema}
+\author{Andrea Comar}
+\date{2019-09-01}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Alternanza stretta}
+
+\noindent\begin{minipage}{.45\textwidth}
+    \begin{lstlisting}[title=ERRATO,escapeinside={(*}{*)},language=c]
+    while(TRUE){
+        while (occupato (*$\neq$*) 0 );
+            sezione critica
+        occupato = 0;
+            sezione non critica
+    }
+    \end{lstlisting}
+    \end{minipage}\hfill
+    \begin{minipage}{.45\textwidth}
+    \begin{lstlisting}[title=CORRETTO,escapeinside={(*}{*)},language=c]
+    while(TRUE){
+        while (turn (*$\neq$*) i );
+            sezione critica
+        turn = j;
+            sezione non critica
+    }
+    \end{lstlisting}
+    \end{minipage}
+    
+    \end{document}
+
+\end{document}

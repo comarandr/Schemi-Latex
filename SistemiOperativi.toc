@@ -44,20 +44,9 @@
 \contentsline {paragraph}{programma:}{10}{section*.11}%
 \contentsline {paragraph}{processo:}{10}{section*.12}%
 \contentsline {paragraph}{job:}{10}{section*.13}%
-\contentsline {paragraph}{multiprogrammazione:}{10}{section*.14}%
-\contentsline {paragraph}{time-sharing:}{11}{section*.15}%
 \contentsline {section}{\numberline {13}Operazioni sui processi}{11}{section.13}%
-\contentsline {subsection}{\numberline {13.1}switch di contesto}{11}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Creazione di un processo:}{11}{subsection.13.2}%
-\contentsline {subsection}{\numberline {13.3}Terminazione di un processo:}{11}{subsection.13.3}%
-\contentsline {subsection}{\numberline {13.4}Gerarchia dei processi:}{12}{subsection.13.4}%
-\contentsline {subsection}{\numberline {13.5}Stati dei processi:}{12}{subsection.13.5}%
-\contentsline {subsection}{\numberline {13.6}Process Control Block - PCB}{12}{subsection.13.6}%
-\contentsline {subsection}{\numberline {13.7}Gli scheduler}{12}{subsection.13.7}%
-\contentsline {paragraph}{scheduler:}{12}{section*.16}%
-\contentsline {subsection}{\numberline {13.8}Modelli di esecuzione dei processi:}{12}{subsection.13.8}%
-\contentsline {section}{\numberline {14}Threads}{13}{section.14}%
-\contentsline {section}{\numberline {15}Scheduling dei processi}{13}{section.15}%
-\contentsline {part}{V\hspace {1em}Scheduling CPU}{13}{part.5}%
-\contentsline {section}{\numberline {16}Introduzione}{13}{section.16}%
-\contentsline {part}{VI\hspace {1em}Esercizi}{13}{part.6}%
+\contentsline {section}{\numberline {14}Stati dei processi}{11}{section.14}%
+\contentsline {section}{\numberline {15}Threads}{11}{section.15}%
+\contentsline {section}{\numberline {16}Scheduling dei processi}{11}{section.16}%
+\contentsline {part}{V\hspace {1em}Scheduling CPU}{11}{part.5}%
+\contentsline {section}{\numberline {17}Introduzione}{11}{section.17}%
