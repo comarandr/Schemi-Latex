@@ -72,6 +72,14 @@ while(TRUE){
 #### istruzioni di Test&set
 
 ```c
+function Test-and-set (var target: boolean) returns boolean;
+    var temp: boolean;
+    temp := target;
+    target := TRUE;
+    return temp;
+```
+
+```c
 enter_region:
     TSL REGISTER, LOCK 
     CMP REGISTER, #0
